@@ -1,3 +1,3 @@
 document.getElementById('button').onclick=function () {
-	alert("hi")
+	document.getElementById('text').innerHTML="It changed";
 }
