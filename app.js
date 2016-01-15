@@ -1,16 +1,24 @@
-var myArray=new Array();
 
- myArray[0]="pizza";
- myArray[1]="chocolate";
+var doc = document.getElementById('box');
+var createdTime, clickedTime, reactionTime;
 
- myOtherArray=["rain","sunshine"];
+function makeBox() {
+	var time = Math.random();
+		time = time * 5000;
 
- myOtherArray.push("snow");
-
- myOtherArray.splice(2, 0, "hail", "cloudy");
-
- console.log(myOtherArray.length);
-
-document.getElementById('button').onclick = function() {
-	document.getElementById('firstDiv').innerHTML = newText;
+	setTimeout(function() {
+		doc.style.display = 'block';
+		createdTime = Date.now();
+	}, time);
 }
+
+doc.onclick = function() {
+	clickedTime = Date.now();
+	reactionTime = (clickedTime - createdTime)/1000;
+	document.getElementById('time').innerHTML = (reactionTime);
+
+	this.style.display = 'none';
+	makeBox();
+}
+
+makeBox();
